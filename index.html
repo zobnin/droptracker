@@ -116,10 +116,8 @@
 		if (error) {
 		    return alert(error);
 		}
-		data = data.replace(/^/g, '<b>');
-		data = data.replace(/\n.*/g, '\n<b>');
-		data = data.replace(/:/g, ':</b>');
 		data = data.replace(/(?:\r\n|\r|\n)/g, '<br />');
+		data = data.replace(/(\w+\s\w+:)/g, '<b>$1</b>');
 		document.getElementById("device_info").innerHTML = data;
 	    });
 	}
