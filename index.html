@@ -61,9 +61,9 @@
         <h1>Bootstrap starter template</h1>
         <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
 	<button id="auth_button" class="btn btn-default" type="submit" disabled="disabled">Dropbox auth</button>
-	<h1>Device Info</h1>
+	<h2>Device Info</h2>
 	<p id="device_info"></p>
-	<h1>Device Statis</h1>
+	<h2>Device Statis</h2>
 	<p id="device_status"></p>
       </div>
 
@@ -79,6 +79,7 @@
 	    if (client.isAuthenticated()) {
 		// Cached credentials are available, make Dropbox API calls.
 		getInfo();
+		getStatus();
 	    } else {
 		// show and set up the "Sign into Dropbox" button
 		var button = document.getElementById("auth_button");
@@ -91,6 +92,7 @@
 			}
 			//doSomethingCool();
 			getInfo();
+			getStatus();
 		    });
 		});
 	    }
@@ -102,6 +104,7 @@
 		    return alert(error);
 		}
 		var elem = document.getElementById("device_info");
+		data = data.replace(/(?:\r\n|\r|\n)/g, '<br />');
 		var node = document.createTextNode(data);
 		elem.appendChild(node);
 	    });
@@ -113,6 +116,7 @@
 		    return alert(error);
 		}
 		var elem = document.getElementById("device_status");
+		data = data.replace(/(?:\r\n|\r|\n)/g, '<br />');
 		var node = document.createTextNode(data);
 		elem.appendChild(node);
 		
