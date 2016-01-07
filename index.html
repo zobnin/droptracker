@@ -39,7 +39,6 @@
 	    <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Devices <span class="caret"></span></a>
               <ul id="menu_devices" class="dropdown-menu">
-                <li><a href="#">Action</a></li>
               </ul>
             </li>
             <li class="active"><a href="#">Map</a></li>
@@ -83,8 +82,14 @@
 
     </div><!-- /.container -->
 
+    <div class="container">
+      <div id="map">
+      </div>
+    </div><!-- /.container -->
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="gmaps.js"></script>
     
     <script>
 	var dboxClient = new Dropbox.Client({ key: 'otyoz3pz5z9rtmn' });
@@ -111,6 +116,18 @@
 		});
 		getInfo("A0001");
 		getStatus("A0001");
+		
+		var map = new GMaps({
+		    div: '#map',
+		    lat: 45.2645785,
+		    lng: 38.1060585,
+		});
+
+		map.addMarker({
+		    lat: 45.2645785,
+		    lng: 38.1060585,
+		    title: "A0001"
+		});
 	    } else {
 		$('#modal_auth').modal();
 		var button = document.getElementById("auth_button");
