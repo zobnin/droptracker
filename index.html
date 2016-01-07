@@ -117,6 +117,8 @@
 		    return alert(error);
 		}
 		data = data.replace(/(?:\r\n|\r|\n)/g, '<br />');
+		data = data.replace(/(^)/g, '<b>');
+		data = data.replace(/:/g, '</br>');
 		document.getElementById("device_info").innerHTML = data;
 	    });
 	}
