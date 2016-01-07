@@ -113,7 +113,7 @@
 		});
 		getInfo("A0001");
 		getStatus("A0001");
-		vat loc getLastLocation("A0001").split(" ");
+		var loc = getLastLocation("A0001").split(" ");
 
 		var map = new GMaps({
 		    div: '#map',
@@ -149,10 +149,12 @@
 		}
 
 		var return_index = data.lastIndexOf("\n");
+		
 		// Only one string or more?
 		if (return_index != data.length-1) {
 		    data = data.substr(data.lastIndexOf("\n")+1);
 		}
+		
 		return data;
 	    }
 	}
