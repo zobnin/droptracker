@@ -116,8 +116,6 @@
 			a.innerHTML = entry;
 			li.appendChild(a);
 			menu.appendChild(li);
-		    });
-		});
 		var device = document.getElementsByClassName("device")[0];
 
 		alert(device);
@@ -125,6 +123,8 @@
 		getInfo(device);
 		getStatus(device);
 		getLastLocation(device);
+		    });
+		});
 		
 	    } else {
 		$('#modal_auth').modal();
