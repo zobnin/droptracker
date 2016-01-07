@@ -98,6 +98,9 @@
 		    if (error) {
 			return showError(error);
 		    }
+
+		    alert("Your Dropbox contains " + entries.join(", "));
+
 		    for (entry in entries) {
 			var menu = document.getElementById("menu_devices");
 			var li = document.createElement('li');
@@ -123,7 +126,7 @@
 	    }
 	});
 
-	function getInfo(String name) {
+	function getInfo(name) {
 	    dboxClient.readFile("/" + name + "/info", function(error, data) {
 		if (error) {
 		    return alert(error);
