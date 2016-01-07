@@ -99,9 +99,7 @@
 			return showError(error);
 		    }
 
-		    alert("Your Dropbox contains " + entries.join(", "));
-
-		    for (entry in entries) {
+		    arr.forEach(function(entry, i, entries) {
 			var menu = document.getElementById("menu_devices");
 			var li = document.createElement('li');
 			var a = document.createElement('a');
@@ -109,7 +107,7 @@
 			a.innerHTML = entry;
 			li.appendChild(a);
 			menu.appendChild(li);
-		    }
+		    });
 		});
 		getInfo("A0001");
 		getStatus("A0001");
@@ -137,7 +135,7 @@
 	    });
 	}
 
-	function getStatus() {
+	function getStatus(name) {
 	    dboxClient.readFile("/" + name + "/status", function(error, data) {
 		if (error) {
 		    return alert(error);
