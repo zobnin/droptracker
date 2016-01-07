@@ -145,6 +145,8 @@
 	});
 
 	function getLastLocation(name) {
+	    var data;
+
 	    dboxClient.readFile("/" + name + "/location", function(error, data) {
 		if (error) {
 		    return alert(error);
@@ -159,11 +161,9 @@
 		if (return_index != data.length-1) {
 		    data = data.substr(data.lastIndexOf("\n")+1);
 		}
-		
-		alert(data);
-
-		return data;
 	    });
+
+	    return data;
 	}
 
 	function getInfo(name) {
