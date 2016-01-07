@@ -128,7 +128,7 @@
 		    return alert(error);
 		}
 		data = data.replace(/(?:\r\n|\r|\n)/g, '<br />');
-		data = data.replace(/(\w+:)/g, '<b>$1</b>');
+		data = data.replace(/(\[A-Za-z\s]+:)/g, '<b>$1</b>');
 		document.getElementById("device_status").innerHTML = data;
 	    });
 	}
