@@ -37,12 +37,12 @@
         <div id="navbar" class="collapse navbar-collapse">
 	  <ul class="nav navbar-nav">
 	    <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Device <span class="caret"></span></a>
-              <ul class="dropdown-menu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Devices <span class="caret"></span></a>
+              <ul id="menu_devices" class="dropdown-menu">
                 <li><a href="#">Action</a></li>
               </ul>
             </li>
-            <li class="active"><a href="#">Home</a></li>
+            <li class="active"><a href="#">Map</a></li>
 	    <li><a href="#logs">Logs</a></li>
 	    <li><a href="#screenshots">Screenshots</a></li>
 	    <li><a href="#photos">Photos</a></li>
@@ -94,8 +94,22 @@
 		return alert(error);
 	    }
 	    if (client.isAuthenticated()) {
-		getInfo();
-		getStatus();
+		client.readdir("/", function(error, entries) {
+		    if (error) {
+			return showError(error);
+		    }
+		    for (entry in entries) {
+			var menu = document.getElementById("menu_devices");
+			var li = document.createElement('li');
+			var a = document.createElement('a');
+			a.href = "#";
+			a.innerHTML = entry;
+			li.appendChild(a);
+			menu.appendChild(li);
+		    }
+		});
+		getInfo("A0001");
+		getStatus("A0001");
 	    } else {
 		$('#modal_auth').modal();
 		var button = document.getElementById("auth_button");
@@ -104,26 +118,24 @@
 			if (error) {
 			    return alert(error);
 			}
-			//getInfo();
-			//getStatus();
 		    });
 		});
 	    }
-	});	
+	});
 
-	function getInfo() {
-	    dboxClient.readFile("/A0001/info", function(error, data) {
+	function getInfo(string name) {
+	    dboxClient.readFile("/" + name + "/info", function(error, data) {
 		if (error) {
 		    return alert(error);
 		}
 		data = data.replace(/(?:\r\n|\r|\n)/g, '<br />');
-		data = data.replace(/(\w+\s\w+:)/g, '<b>$1</b>');
+		data = data.replace(/([A-Za-z\s]+:)/g, '<b>$1</b>');
 		document.getElementById("device_info").innerHTML = data;
 	    });
 	}
 
 	function getStatus() {
-	    dboxClient.readFile("/A0001/status", function(error, data) {
+	    dboxClient.readFile("/" + name + "/status", function(error, data) {
 		if (error) {
 		    return alert(error);
 		}
