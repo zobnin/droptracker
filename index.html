@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
+    <!-- Navbar -->
+
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -51,6 +53,8 @@
       </div>
     </nav>
 
+    <!-- Modal window -->
+
     <div class="modal fade" id="modal_auth" tabindex="-1" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -68,6 +72,8 @@
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+
+    <!-- Content -->
 
     <div class="container">
       <div class="col-md-3 info">
@@ -106,14 +112,16 @@
 			var li = document.createElement('li');
 			var a = document.createElement('a');
 			a.href = "#";
+			a.class = "device";
 			a.innerHTML = entry;
 			li.appendChild(a);
 			menu.appendChild(li);
 		    });
 		});
-		getInfo("A0001");
-		getStatus("A0001");
-		getLastLocation("A0001");
+		var device = document.getElementsByClassName("device")[0];
+		getInfo(device);
+		getStatus(device);
+		getLastLocation(device);
 		
 	    } else {
 		$('#modal_auth').modal();
@@ -155,7 +163,7 @@
 		map.addMarker({
 		    lat: locs[2],
 		    lng: locs[3],
-		    title: locs[0] + locs[1]
+		    title: locs[0] + " " + locs[1]
 		});
 	    });
 	}
