@@ -113,6 +113,7 @@
 		});
 		getInfo("A0001");
 		getStatus("A0001");
+		// FIXME check for null
 		var loc = getLastLocation("A0001").split(" ");
 
 		var map = new GMaps({
@@ -156,7 +157,7 @@
 		}
 		
 		return data;
-	    }
+	    });
 	}
 
 	function getInfo(name) {
