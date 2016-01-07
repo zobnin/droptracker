@@ -104,8 +104,8 @@
 			if (error) {
 			    return alert(error);
 			}
-			getInfo();
-			getStatus();
+			//getInfo();
+			//getStatus();
 		    });
 		});
 	    }
@@ -118,7 +118,7 @@
 		}
 		data = data.replace(/(?:\r\n|\r|\n)/g, '<br />');
 		data = data.replace(/(^)/g, '<b>');
-		data = data.replace(/:/g, '</br>');
+		data = data.replace(/:/g, ':</b>');
 		document.getElementById("device_info").innerHTML = data;
 	    });
 	}
