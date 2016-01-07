@@ -115,6 +115,9 @@
 		getStatus("A0001");
 		
 		var loc = getLastLocation("A0001");
+
+		alert(loc);
+
 		if (loc != null) {
 		    var locs = loc.split(" ");
 
@@ -151,8 +154,6 @@
 		if (!data || data.length == 0) {
 		    return null;
 		}
-
-		alert(data);
 
 		var return_index = data.lastIndexOf("\n");
 		
