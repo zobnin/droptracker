@@ -1,6 +1,17 @@
 body {
     padding-top: 50px;
 }
-.starter-template {
+.info {
     padding-top: 10px;
 }
+
+.map {
+    padding-top: 10px;
+}
+
+#map {
+    display: block;
+    width: 700px;
+    height: 500px;
+}
+
