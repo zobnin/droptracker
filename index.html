@@ -63,7 +63,7 @@
 	<button id="auth_button" class="btn btn-default" type="submit" disabled="disabled">Dropbox auth</button>
 	<h2>Device Info</h2>
 	<p id="device_info"></p>
-	<h2>Device Statis</h2>
+	<h2>Device Status</h2>
 	<p id="device_status"></p>
       </div>
 
@@ -103,10 +103,8 @@
 		if (error) {
 		    return alert(error);
 		}
-		var elem = document.getElementById("device_info");
 		data = data.replace(/(?:\r\n|\r|\n)/g, '<br />');
-		var node = document.createTextNode(data);
-		elem.appendChild(node);
+		document.getElementById("device_info").innerHTML = data;
 	    });
 	}
 
@@ -115,11 +113,8 @@
 		if (error) {
 		    return alert(error);
 		}
-		var elem = document.getElementById("device_status");
 		data = data.replace(/(?:\r\n|\r|\n)/g, '<br />');
-		var node = document.createTextNode(data);
-		elem.appendChild(node);
-		
+		document.getElementById("device_info").innerHTML = data;
 	    });
 	}
     </script>
