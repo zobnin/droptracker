@@ -113,20 +113,23 @@
 		});
 		getInfo("A0001");
 		getStatus("A0001");
-		// FIXME check for null
-		var loc = getLastLocation("A0001").split(" ");
+		
+		var loc = getLastLocation("A0001");
+		if (loc != null) {
+		    var locs = loc.split(" ");
 
-		var map = new GMaps({
-		    div: '#map',
-		    lat: loc[2],
-		    lng: loc[3]
-		});
+		    var map = new GMaps({
+			div: '#map',
+			lat: locs[2],
+			lng: locs[3]
+		    });
 
-		map.addMarker({
-		    lat: loc[2],
-		    lng: loc[3],
-		    title: loc[0] + loc[1]
-		});
+		    map.addMarker({
+			lat: locs[2],
+			lng: locs[3],
+			title: locs[0] + locs[1]
+		    });
+		}
 	    } else {
 		$('#modal_auth').modal();
 		var button = document.getElementById("auth_button");
