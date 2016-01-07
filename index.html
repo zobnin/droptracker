@@ -36,7 +36,7 @@
         <div id="navbar" class="collapse navbar-collapse">
 	  <ul class="nav navbar-nav">
 	    <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Devices <span class="caret"></span></a>
+              <a href="#" id="navbar_devices" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Devices <span class="caret"></span></a>
               <ul id="menu_devices" class="dropdown-menu">
               </ul>
             </li>
@@ -120,8 +120,7 @@
 		    });
 		    
 		    var device = document.getElementsByClassName("device")[0].innerHTML;
-
-		    alert(device);
+		    document.getElementById("navbar_devices").innerHTML = device + "<span class="caret"></span>"
 
 		    getInfo(device);
 		    getStatus(device);
