@@ -56,12 +56,30 @@
       </div>
     </nav>
 
+    <div class="modal fade" id="modal_auth" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Dropbox auth</h4>
+          </div>
+          <div class="modal-body">
+            <p>In order to use this web app you must auth into Dropbox</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="auth_button">Dropbox auth</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
     <div class="container">
       <div class="starter-template">
 	<button id="auth_button" class="btn btn-default" type="submit" disabled="disabled">Dropbox auth</button>
-	<h2>Device Info</h2>
+	<h3>Info</h3>
 	<p id="device_info"></p>
-	<h2>Device Status</h2>
+	<h3>Status</h3>
 	<p id="device_status"></p>
       </div>
 
@@ -75,20 +93,16 @@
 		return alert(error);
 	    }
 	    if (client.isAuthenticated()) {
-		// Cached credentials are available, make Dropbox API calls.
 		getInfo();
 		getStatus();
 	    } else {
-		// show and set up the "Sign into Dropbox" button
+		$('#modal_auth').modal();
 		var button = document.getElementById("auth_button");
-		button.removeAttribute("disabled");
 		button.addEventListener("click", function() {
-		    // The user will have to click an 'Authorize' button.
 		    client.authenticate(function(error, client) {
 			if (error) {
 			    return alert(error);
 			}
-			//doSomethingCool();
 			getInfo();
 			getStatus();
 		    });
