@@ -61,6 +61,10 @@
         <h1>Bootstrap starter template</h1>
         <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
 	<button id="auth_button" class="btn btn-default" type="submit" disabled="disabled">Dropbox auth</button>
+	<h1>Device Info</h1>
+	<p id="device_info"></p>
+	<h1>Device Statis</h1>
+	<p id="device_status"></p>
       </div>
 
     </div><!-- /.container -->
@@ -97,7 +101,21 @@
 		if (error) {
 		    return alert(error);
 		}
-		alert(data);
+		var elem = document.getElementById("device_info");
+		var node = document.createTextNode(data);
+		elem.appendChild(node);
+	    });
+	}
+
+	function getStatus() {
+	    dboxClient.readFile("/A0001/status", function(error, data) {
+		if (error) {
+		    return alert(error);
+		}
+		var elem = document.getElementById("device_status");
+		var node = document.createTextNode(data);
+		elem.appendChild(node);
+		
 	    });
 	}
     </script>
