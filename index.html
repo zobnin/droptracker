@@ -112,15 +112,13 @@
 			var li = document.createElement('li');
 			var a = document.createElement('a');
 			a.href = "#";
-			a.class = "device";
+			a.className = "device";
 			a.innerHTML = entry;
 			li.appendChild(a);
 			menu.appendChild(li);
 		    });
 		});
 		var device = document.getElementsByClassName("device")[0];
-
-		alert(device);
 
 		getInfo(device);
 		getStatus(device);
