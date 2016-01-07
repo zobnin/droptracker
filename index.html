@@ -22,8 +22,8 @@
     <style>
     #map {
 	display: block;
-	width: 100%;
-	height: 100%;
+	width: 700px;
+	height: 500px;
     }
     </style>
 </head>
@@ -126,17 +126,15 @@
 		
 		var map = new GMaps({
 		    div: '#map',
-		    //lat: 45.2645785,
-		    //lng: 38.1060585,
 		    lat: -12.043333,
 		    lng: -77.028333
 		});
 
-		//map.addMarker({
-		//    lat: 45.2645785,
-		//    lng: 38.1060585,
-		//    title: "A0001"
-		//});
+		map.addMarker({
+		    lat: 45.2645785,
+		    lng: 38.1060585,
+		    title: "A0001"
+		});
 	    } else {
 		$('#modal_auth').modal();
 		var button = document.getElementById("auth_button");
