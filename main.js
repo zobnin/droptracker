@@ -28,12 +28,25 @@ dboxClient.authenticate({interactive: false}, function(error, client) {
 	    getInfo(device);
 	    getStatus(device);
 	    getLastLocation(device);
+
+	    var button_lost = document.getElementById("button_lost");
+	    button_lost.removeAttribute("disabled");
+	    button_lost.addEventListener("click", function() {
+		// FIXME PIN!!!
+		sendCommand(device, "lost 1234");
+	    });
+	    
+	    var button_lost = document.getElementById("button_lost");
+	    button_lost.removeAttribute("disabled");
+	    button_lost.addEventListener("click", function() {
+		sendCommand(device, "wipe");
+	    });
 	});
     } else {
 	$('#modal_auth').modal();
 	var button = document.getElementById("auth_button");
 	button.addEventListener("click", function() {
-	    client.authenticate(function(error, client) {
+	    dboxClient.authenticate(function(error, client) {
 		if (error) {
 		    return alert(error);
 		}
@@ -95,3 +108,10 @@ function getStatus(name) {
     });
 }
 
+function sendCommand(name, cmd) {
+    dboxClient.writeFile("/" + name + "/control", cmd + "\n", function(error, stat) {
+	if (error) {
+	    return alert(error);
+	}
+    });
+}
