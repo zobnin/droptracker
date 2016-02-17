@@ -65,7 +65,7 @@ function getLastLocation(name) {
 	}
 
 	var lines = data.split("\n");
-	var line = lines[lines.length-1];
+	var line = lines[lines.length-2];
 
 	var locs = line.split(" ");
 	var map = new GMaps({
