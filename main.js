@@ -7,7 +7,7 @@ dboxClient.authenticate({interactive: false}, function(error, client) {
     if (client.isAuthenticated()) {
 	client.readdir("/", function(error, entries) {
 	    if (error) {
-		return showError(error);
+		return alert(error);
 	    }
 
 	    entries.forEach(function(entry) {
@@ -36,9 +36,9 @@ dboxClient.authenticate({interactive: false}, function(error, client) {
 		sendCommand(device, "lost 1234");
 	    });
 	    
-	    var button_lost = document.getElementById("button_lost");
-	    button_lost.removeAttribute("disabled");
-	    button_lost.addEventListener("click", function() {
+	    var button_wipe = document.getElementById("button_wipe");
+	    button_wipe.removeAttribute("disabled");
+	    button_wipe.addEventListener("click", function() {
 		sendCommand(device, "wipe");
 	    });
 	});
@@ -66,13 +66,13 @@ function getLastLocation(name) {
 
 	var return_index = data.lastIndexOf("\n");
 		
-	// Only one string or more?
-	if (return_index != data.length-1) {
+	// Only one line or more?
+	if (return_index != -1) {
 	    data = data.substr(data.lastIndexOf("\n")+1);
 	}
 	
 	var locs = data.split(" ");
-	    var map = new GMaps({
+	var map = new GMaps({
 	    div: '#map',
 	    lat: locs[2],
 	    lng: locs[3]
