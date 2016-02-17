@@ -64,14 +64,8 @@ function getLastLocation(name) {
 	    return null;
 	}
 
-	//var return_index = data.lastIndexOf("\n");
-		
-	//if (return_index != -1) {
-	//    data = data.substr(data.lastIndexOf("\n")+1);
-	//}
-
 	var lines = data.split("\n");
-	var line = lines[lines.length];
+	var line = lines[lines.length-1];
 
 	var locs = line.split(" ");
 	var map = new GMaps({
