@@ -17,7 +17,7 @@ function getLastLocation(name) {
       lat: locs[2],
       lng: locs[3]
     });
-    debugger
+    
     map.addMarker({
       lat: locs[2],
       lng: locs[3],
