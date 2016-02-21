@@ -18,7 +18,7 @@ $('#menu-map').click(function(e){
   e.preventDefault()
   selectMenuItem(this)
   clearContentContainer()
-  $('#content').append('<h2>Map</h2><div id="content-map"></div>')
+  $('#content').append('<h2>Map</h2><div id="content-map"><img src="img/ajax-loader.gif"></div>')
   getLastLocation(window.DropTracker.STATE.activeDevice)
 })
 $('#menu-logs').click(function(e){
