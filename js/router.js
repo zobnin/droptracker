@@ -27,7 +27,7 @@ function navigateSection(slug) {
     case 'photos':
       $('#content').append('<h2>Photos for device #' + window.DropTracker.STATE.activeDevice +'</h2><div id="content-photos"></div>')
       break
-    case 'shell'):
+    case 'shell':
       $('#content').append('<h2>Shell for device #' + window.DropTracker.STATE.activeDevice +'</h2><div id="content-shell"></div>')
       break
     case 'map':
