@@ -27,9 +27,9 @@ $('#menu-logs').click(function(e){
   clearContentContainer()
   $('#content').append('<h2>Logs</h2><div id="content-logs"></div>')
   $('#content-logs').append('<h3>Main</h3>')
-  getLastLocation(window.DropTracker.STATE.activeDevice, main)
+  getLastLocation(window.DropTracker.STATE.activeDevice, "main")
   $('#content-logs').append('<h3>Calls</h3>')
-  getLastLocation(window.DropTracker.STATE.activeDevice, calls)
+  getLastLocation(window.DropTracker.STATE.activeDevice, "calls")
 })
 $('#menu-screenshots').click(function(e){
   e.preventDefault()
