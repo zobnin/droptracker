@@ -26,7 +26,7 @@ function getLogs(name, logfile) {
       return alert(error);
     }
     data = data.replace(/\n/g, '<br />');
-    $("content-logs").append(data);
+    $('#content-logs').append(data);
   });
 }
 
