@@ -27,6 +27,9 @@ function navigateSection(slug) {
     case 'photos':
       $('#content').append('<h2>Photos for device #' + window.DropTracker.STATE.activeDevice +'</h2><div id="content-photos"></div>')
       break
+    case 'shell'):
+      $('#content').append('<h2>Shell for device #' + window.DropTracker.STATE.activeDevice +'</h2><div id="content-shell"></div>')
+      break
     case 'map':
     default:
       $('#content').append('<h2>Map for device #' + window.DropTracker.STATE.activeDevice +'</h2><div id="content-map"><img src="img/ajax-loader.gif"></div>')
@@ -54,4 +57,9 @@ $('#menu-photos').click(function(e){
   e.preventDefault()
   selectMenuItem(this)
   navigateSection('photos')
+})
+$('#menu-shell').click(function(e){
+  e.preventDefault()
+  selectMenuItem(this)
+  navigateSection('shell')
 })
