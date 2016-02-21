@@ -9,7 +9,7 @@ body {
     padding-top: 10px;
 }
 
-#map {
+#content-map {
     display: block;
     height: 500px;
 }

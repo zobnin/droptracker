@@ -41,10 +41,10 @@
             <ul id="menu_devices" class="dropdown-menu">
             </ul>
           </li>
-          <li class="active"><a href="#">Map</a></li>
-          <li><a href="#logs">Logs</a></li>
-          <li><a href="#screenshots">Screenshots</a></li>
-          <li><a href="#photos">Photos</a></li>
+          <li><a href="#" id="menu-map">Map</a></li>
+          <li><a href="#" id="menu-logs">Logs</a></li>
+          <li><a href="#" id="menu-screenshots">Screenshots</a></li>
+          <li><a href="#" id="menu-photos">Photos</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#about">About</a></li>
@@ -92,10 +92,7 @@
       </p>
     </div>
 
-    <div class="col-md-9 map">
-      <div id="map">
-      </div>
-
+    <div id="content" class="col-md-9">
     </div>
     <!-- /.container -->
 
@@ -108,9 +105,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.22/gmaps.min.js"></script>
     <!-- app -->
     <script src="js/shared.js"></script>
+    <!-- sections -->
+    <script src="js/map.js"></script>
     <script src="js/info.js"></script>
     <script src="js/screenshots.js"></script>
+    <!-- common -->
     <script src="js/router.js"></script>
+    <script src="js/ui.js"></script>
     <script src="js/main.js"></script>
 </body>
 

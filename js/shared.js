@@ -2,6 +2,7 @@ window.DropTracker = window.DropTracker || {}
 window.DropTracker.UI = window.DropTracker.UI || {}
 window.DropTracker.STATE = window.DropTracker.STATE || {}
 
+
 /**
  * @description Adds device to devices list
  * @param {String} deviceName Device name
@@ -16,6 +17,7 @@ function addDevice(deviceName) {
   $menuDevices.append('<li><a href="#" class="device device_list-device" data-device="' + deviceName + '">' + deviceName + '</a></li>')
 }
 
+
 /**
  * @description Fetches info for provided device
  * @param {String} deviceName Device name
@@ -26,7 +28,8 @@ function setActiveDevice(deviceName) {
   // fetch data
   getInfo(deviceName)
   getStatus(deviceName)
-  getLastLocation(deviceName)
+  // getLastLocation(deviceName)
   // update selected device UI
   $('#navbar_devices').html(deviceName + ' <span class="caret"></span>')
+  displayHome(deviceName)
 }
