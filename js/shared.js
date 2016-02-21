@@ -9,12 +9,8 @@ window.DropTracker.STATE = window.DropTracker.STATE || {}
 function addDevice(deviceName) {
   // prevent multiple DOM search
   var $menuDevices = (function(){
-    if (window.DropTracker.UI.menuDevices) {
-      return window.DropTracker.UI.menuDevices
-    } else {
-      window.DropTracker.UI.menuDevices = $('#menu_devices')
-      return window.DropTracker.UI.menuDevices
-    }
+    if (!window.DropTracker.UI.menuDevices) window.DropTracker.UI.menuDevices = $('#menu_devices')
+    return window.DropTracker.UI.menuDevices
   })()
   // construct element
   $menuDevices.append('<li><a href="#" class="device" id="' + deviceName + '">' + deviceName + '</a></li>')
