@@ -20,6 +20,16 @@ function getStatus(name) {
   });
 }
 
+function getLogs(name, logfile) {
+  dboxClient.readFile("/" + name + "/logs/" + logfile, function(error, data) {
+    if (error) {
+      return alert(error);
+    }
+    data = data.replace(/\n/g, '<br />');
+    document.getElementById("content_logs").innerHTML = data;
+  });
+}
+
 function sendCommand(name, cmd) {
   dboxClient.writeFile("/" + name + "/control", cmd + "\n", function(error, stat) {
     if (error) {
