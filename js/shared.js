@@ -13,7 +13,7 @@ function addDevice(deviceName) {
     return window.DropTracker.UI.menuDevices
   })()
   // construct element
-  $menuDevices.append('<li><a href="#" class="device" id="' + deviceName + '">' + deviceName + '</a></li>')
+  $menuDevices.append('<li><a href="#" class="device device_list-device" data-device="' + deviceName + '">' + deviceName + '</a></li>')
 }
 
 /**
