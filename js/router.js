@@ -18,9 +18,7 @@ function navigateSection(slug) {
   switch (slug) {
     case 'logs':
       $('#content').append('<h2>Logs for device #' + window.DropTracker.STATE.activeDevice +'</h2><div id="content-logs"></div>')
-      $('#content-logs').append('<h3>Main</h3>')
       getLogs(window.DropTracker.STATE.activeDevice, "main")
-      $('#content-logs').append('<h3>Calls</h3>')
       getLogs(window.DropTracker.STATE.activeDevice, "calls")
       break
     case 'screenshots':
