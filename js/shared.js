@@ -31,5 +31,5 @@ function setActiveDevice(deviceName) {
   // getLastLocation(deviceName)
   // update selected device UI
   $('#navbar_devices').html(deviceName + ' <span class="caret"></span>')
-  displayHome(deviceName)
+  navigateSection(window.DropTracker.STATE.menu ? window.DropTracker.STATE.menu : '')
 }

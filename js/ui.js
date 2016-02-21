@@ -1,3 +1,7 @@
+window.DropTracker = window.DropTracker || {}
+window.DropTracker.UI = window.DropTracker.UI || {}
+window.DropTracker.STATE = window.DropTracker.STATE || {}
+
 /**
  * @description Clears content area
  * @description Called after section change
@@ -13,12 +17,8 @@ function clearContentContainer () {
  * @param  {jQuery object} el Navbar a<jQuery>
  */
 function selectMenuItem(el) {
+  // set new active state menu item
+  window.DropTracker.STATE.menu = $(el).data('menu')
   $('.navbar-nav li').removeClass('active')
   $(el).parent().addClass('active')
-}
-
-function displayHome(deviceName) {
-  clearContentContainer()
-  $('.navbar-nav li').removeClass('active')
-  $('#content').append('<div id="content-home"><h3>You are viewing device ID:#' + deviceName + '</h3><p>Select section in top menu to view device data.</p></div>')
 }
