@@ -22,3 +22,16 @@ function selectMenuItem(el) {
   $('.navbar-nav li').removeClass('active')
   $(el).parent().addClass('active')
 }
+
+function attachShellForm() {
+  $('#content-shell').append(
+    '<form class="form-inline" id="shell-form">\
+      <div class="form-group">\
+        <div class="input-group">\
+          <input id="shell-form-input" type="text" class="form-control" placeholder="uname -a">\
+        </div>\
+      </div>\
+      <button id="shell-button" class="btn btn-primary">Execute</button>\
+    </form>'
+  )
+}

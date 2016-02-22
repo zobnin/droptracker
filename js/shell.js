@@ -1,3 +1,9 @@
+function runShellCommand(e) {
+  $(e.currentTarget).addClass('disabled','')
+  $(e.currentTarget).text('Executing command..')
+  var command = $('#shell-form-input').val()
+}
+
 function sendCommand(name, cmd) {
   dboxClient.writeFile("/" + name + "/control", cmd + "\n", function(error, stat) {
     if (error) {
@@ -19,29 +25,17 @@ function getResult(name) {
   });
 }
 
-function makeShellInput(name) {
-  $('#shell-input').append('<form class="form-inline" id="shell-form"></form>');
-  $('#shell-form').append('<div class="form-group"><div class="input-group"><input id="shell-form-input" type="text" class="form-control" placeholder="uname -a"></div></div>');
-  $('#shell-form').append('<button id="shell-button" type="submit" class="btn btn-primary">Execute</button>');
-
-  $('#shell-form').submit(function () {
-    var cmd = $('#shell-form-input').val()
-    //sendCommand(window.DropTracker.STATE.activeDevice, cmd);
-    waitForChanges();
-  });
-}
-  
-function waitForChanges()
-  dboxClient.pullChanges(function(error, cursor) {
-    if (error) {
-      return alert(error);
-    }
-    dboxClient.pollForChanges(cursor, { timeout: 300 }, function(error, result) {
-      if (result.hasChanges == true) {
-        dboxClient.pullChanges(cursor, function(error, cursor) {
-	  // TODO
-        });
-      }
-    });
-  }
-}
+// function waitForChanges() {
+//   dboxClient.pullChanges(function(error, cursor) {
+//     if (error) {
+//       return alert(error)
+//     }
+//     dboxClient.pollForChanges(cursor, { timeout: 300 }, function(error, result) {
+//       if (result.hasChanges == true) {
+//         dboxClient.pullChanges(cursor, function(error, cursor) {
+// 	         // TODO
+//         })
+//       }
+//     });
+//   }
+// }
