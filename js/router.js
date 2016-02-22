@@ -17,15 +17,14 @@ function navigateSection(slug) {
   clearContentContainer()
   switch (slug) {
     case 'logs':
-      $('#content').append('<h2>Logs for device #' + window.DropTracker.STATE.activeDevice +'</h2><div id="content-logs"></div>')
-      getLogs(window.DropTracker.STATE.activeDevice, "main")
-      getLogs(window.DropTracker.STATE.activeDevice, "calls")
+      $('#content').append('<h2>Logs for device #' + window.DropTracker.STATE.activeDevice +'</h2><div id="content-logs"><img src="img/ajax-loader.gif"></div>')
+      getLogs(window.DropTracker.STATE.activeDevice)
       break
     case 'screenshots':
-      $('#content').append('<h2>Screenshots for device #' + window.DropTracker.STATE.activeDevice +'</h2><div id="content-screenshots"></div>')
+      $('#content').append('<h2>Screenshots for device #' + window.DropTracker.STATE.activeDevice +'</h2><div id="content-screenshots"><img src="img/ajax-loader.gif"></div>')
       break
     case 'photos':
-      $('#content').append('<h2>Photos for device #' + window.DropTracker.STATE.activeDevice +'</h2><div id="content-photos"></div>')
+      $('#content').append('<h2>Photos for device #' + window.DropTracker.STATE.activeDevice +'</h2><div id="content-photos"><img src="img/ajax-loader.gif"></div>')
       break
     case 'shell':
       $('#content').append('<h2>Shell for device #' + window.DropTracker.STATE.activeDevice +'</h2><div id="content-shell"></div>')
