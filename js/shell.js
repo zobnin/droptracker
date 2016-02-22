@@ -25,7 +25,7 @@ function makeShellInput(name) {
   $('#shell-form').append('<button id="shell-button" type="submit" class="btn btn-primary">Execute</button></div></div>');
 
   $('#shell-form').submit(function () {
-    var data = $(this).serialize();
-    send(Command
+    var cmd = $(this).serialize();
+    sendCommand(window.DropTracker.STATE.activeDevice, cmd);
   });
 }
