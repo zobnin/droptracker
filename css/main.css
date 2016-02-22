@@ -17,3 +17,11 @@ body {
 #left_buttons {
     padding-top: 30px;
 }
+
+.shell-output {
+  margin-top: 20px;
+}
+
+#shell-output-container {
+  display: none;
+}
