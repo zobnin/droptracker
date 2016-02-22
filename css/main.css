@@ -1,0 +1,19 @@
+body {
+    padding-top: 50px;
+}
+.info {
+    padding-top: 10px;
+}
+
+.map {
+    padding-top: 10px;
+}
+
+#content-map {
+    display: block;
+    height: 500px;
+}
+
+#left_buttons {
+    padding-top: 30px;
+}
