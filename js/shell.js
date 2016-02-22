@@ -26,6 +26,22 @@ function makeShellInput(name) {
 
   $('#shell-form').submit(function () {
     var cmd = $('#shell-form-input').val()
-    sendCommand(window.DropTracker.STATE.activeDevice, cmd);
+    //sendCommand(window.DropTracker.STATE.activeDevice, cmd);
+    waitForChanges();
   });
+}
+  
+function waitForChanges()
+  dboxClient.pullChanges(function(error, cursor) {
+    if (error) {
+      return alert(error);
+    }
+    dboxClient.pollForChanges(cursor, { timeout: 300 }, function(error, result) {
+      if (result.hasChanges == true) {
+        dboxClient.pullChanges(cursor, function(error, cursor) {
+	  // TODO
+        });
+      }
+    });
+  }
 }
