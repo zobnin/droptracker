@@ -32,6 +32,10 @@ function attachShellForm() {
         </div>\
       </div>\
       <button id="shell-button" class="btn btn-primary">Execute</button>\
-    </form>'
+    </form>\
+    <div id="shell-output-container" class="shell-output">\
+      <h4>Command output</h4>\
+      <pre id="shell-output"></pre>\
+    </div>'
   )
 }
