@@ -21,11 +21,11 @@ function getResult(name) {
 
 function makeShellInput(name) {
   $('#shell-input').append('<form class="form-inline" id="shell-form"></form>');
-  $('#shell-form').append('<div class="form-group"><div class="input-group"><input type="text" class="form-control" placeholder="uname -a">');
-  $('#shell-form').append('<button id="shell-button" type="submit" class="btn btn-primary">Execute</button></div></div>');
+  $('#shell-form').append('<div class="form-group"><div class="input-group"><input id="shell-form-input" type="text" class="form-control" placeholder="uname -a"></div></div>');
+  $('#shell-form').append('<button id="shell-button" type="submit" class="btn btn-primary">Execute</button>');
 
   $('#shell-form').submit(function () {
-    var cmd = $(this).serialize();
+    var cmd = $('#shell-form-input').val()
     sendCommand(window.DropTracker.STATE.activeDevice, cmd);
   });
 }
