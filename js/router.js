@@ -11,7 +11,13 @@ $(document).on('click', '.device_list-device', function(e) {
   e.preventDefault()
   var deviceName = $(this).data('device')
   setActiveDevice(deviceName)
-});
+})
+
+// execute shell
+$(document).on('click', '#shell-button', function(e) {
+  e.preventDefault()
+  runShellCommand(e)
+})
 
 function navigateSection(slug) {
   clearContentContainer()
@@ -28,8 +34,8 @@ function navigateSection(slug) {
       break
     case 'shell':
       $('#content').append('<h2>Shell for device #' + window.DropTracker.STATE.activeDevice +'</h2><div id="content-shell"></div>')
-      $('#content-shell').append('<div id="shell-input"></div><div id="shell-output"></div>')
-      makeShellInput(window.DropTracker.STATE.activeDevice)
+      // $('#content-shell').append('<div id="shell-input"></div><div id="shell-output"></div>')
+      attachShellForm()
       break
     case 'map':
     default:
