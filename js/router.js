@@ -30,6 +30,17 @@ $(document).on('click', '.img-content-photos-photo', function(e) {
   .show()
 })
 
+// photos-modal
+$(document).on('click', '.img-content-screenshots-screenshot', function(e) {
+  e.preventDefault()
+  var url = $(this).attr('src')
+  $('#modal_image img').attr('src', url)
+  $('#modal_image').modal({
+    keyboard: false
+  })
+  .show()
+})
+
 function navigateSection(slug) {
   clearContentContainer()
   switch (slug) {
@@ -39,6 +50,7 @@ function navigateSection(slug) {
       break
     case 'screenshots':
       $('#content').append('<h2>Screenshots for device #' + window.DropTracker.STATE.activeDevice +'</h2><div id="content-screenshots"><img src="img/ajax-loader.gif"></div>')
+      getScreenshots(window.DropTracker.STATE.activeDevice)
       break
     case 'photos':
       $('#content').append('<h2>Photos for device #' + window.DropTracker.STATE.activeDevice +'</h2><div id="content-photos"><img src="img/ajax-loader.gif"></div>')
