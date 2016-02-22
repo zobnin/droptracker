@@ -29,6 +29,7 @@ function navigateSection(slug) {
       break
     case 'shell':
       $('#content').append('<h2>Shell for device #' + window.DropTracker.STATE.activeDevice +'</h2><div id="content-shell"></div>')
+      $('#content-shell').append('<div id="shell-input"></div><div id="shell-output"></div>')
       break
     case 'map':
     default:

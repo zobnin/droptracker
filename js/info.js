@@ -20,10 +20,3 @@ function getStatus(name) {
   });
 }
 
-function sendCommand(name, cmd) {
-  dboxClient.writeFile("/" + name + "/control", cmd + "\n", function(error, stat) {
-    if (error) {
-      return alert(error);
-    }
-  });
-}
