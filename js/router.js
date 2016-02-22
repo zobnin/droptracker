@@ -19,6 +19,17 @@ $(document).on('click', '#shell-button', function(e) {
   runShellCommand(e)
 })
 
+// photos-modal
+$(document).on('click', '.img-content-photos-photo', function(e) {
+  e.preventDefault()
+  var url = $(this).attr('src')
+  $('#modal_image img').attr('src', url)
+  $('#modal_image').modal({
+    keyboard: false
+  })
+  .show()
+})
+
 function navigateSection(slug) {
   clearContentContainer()
   switch (slug) {
@@ -31,6 +42,7 @@ function navigateSection(slug) {
       break
     case 'photos':
       $('#content').append('<h2>Photos for device #' + window.DropTracker.STATE.activeDevice +'</h2><div id="content-photos"><img src="img/ajax-loader.gif"></div>')
+      getPhotos(window.DropTracker.STATE.activeDevice)
       break
     case 'shell':
       $('#content').append('<h2>Shell for device #' + window.DropTracker.STATE.activeDevice +'</h2><div id="content-shell"></div>')

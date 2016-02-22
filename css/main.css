@@ -25,3 +25,7 @@ body {
 #shell-output-container {
   display: none;
 }
+
+.img-content-photos-photo {
+  cursor: pointer;
+}
