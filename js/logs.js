@@ -6,10 +6,20 @@
  * @param  {String} logfile    Call types to retrieve, 'main'||'calls'
  * @return {Promise}           Promise<String|Error>
  */
-function _getCalls(deviceName, logfile) {
+function _getCalls(deviceName) {
   // dont use Promisify cause add params
   return new Promise(function(resolve, reject) {
-    dboxClient.readFile("/" + deviceName + "/logs/" + logfile, function(err, data) {
+    dboxClient.readFile("/" + deviceName + "/calls", function(err, data) {
+      err? reject(err): resolve(data)
+    })
+  })
+}
+
+
+function _getLogs(deviceName) {
+  // dont use Promisify cause add params
+  return new Promise(function(resolve, reject) {
+    dboxClient.readFile("/" + deviceName + "/logs", function(err, data) {
       err? reject(err): resolve(data)
     })
   })
@@ -78,10 +88,10 @@ function _appendMarkup(sections) {
  */
 function getLogs(deviceName) {
   return Promise.all([
-    _getCalls(deviceName, 'main')
+    _getLogs(deviceName)
       .then(_parseData)
       .then(_buildMarkup),
-    _getCalls(deviceName, 'calls')
+    _getCalls(deviceName)
       .then(_parseData)
       .then(_buildMarkup)
   ])
